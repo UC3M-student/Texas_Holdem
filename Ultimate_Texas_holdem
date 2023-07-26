@@ -1,0 +1,31 @@
+import random
+from collections import Counter
+import numpy as np
+
+def table_hands(time):
+    
+    player_wins = 0
+    
+    for i in range(time):
+    
+        desk = (np.arange(1,13,1).tolist())*4
+        random.shuffle(desk)
+        
+        player_hand = Counter((desk[0],desk[1], desk[5],desk[6],desk[7],desk[9],desk[11]))
+        dealer_hand = Counter((desk[2],desk[3],desk[5],desk[6],desk[7],desk[9],desk[11]))
+        print(player_hand)
+        print(dealer_hand)
+        
+        player_hand = max(player_hand.values())
+        dealer_hand = max(dealer_hand.values())
+        
+        if player_hand > dealer_hand:
+            player_wins += 1
+        else:
+            player_wins += 0
+            
+        
+    return player_wins
+
+
+print(table_hands(100))
