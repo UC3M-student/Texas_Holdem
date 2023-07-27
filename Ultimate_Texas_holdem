@@ -3,7 +3,7 @@ from collections import Counter
 import numpy as np
 import heapq
 
-def table_hands(time):
+def Texas_Holdem_Hands(time):
     
     poker = 0
     full_house = 0
@@ -74,8 +74,8 @@ def table_hands(time):
             
             if straight_royal_flush_true == 1:
                 straight_royal_flush += 1
-                # print(player_hand_numbers_list)
-                # print(player_hand_colors)
+                print(player_hand_numbers_list)
+                print(player_hand_colors)
             else:
                 flush += 1
             
@@ -91,10 +91,15 @@ def table_hands(time):
                 # print(player_hand_colors, player_hand_numbers_list)
             else:
                 high_card += 1
-                print(player_hand_colors, player_hand_numbers_list)
+                # print(player_hand_colors, player_hand_numbers_list)
 
         
-    return print(straight_royal_flush,poker,full_house,flush, straight, three_of_a_kind,two_pair,pair, high_card)
+    return print("Straight_Royal_Flush:", straight_royal_flush/100000, "%",
+                 "|Poker:",poker/100000,"%", "|Full_house:",full_house/100000, "%",
+                 "|Flush", flush/100000, "%", "|Straight:",straight/100000,"%",
+                 "|Three_Of_A_Kind:",three_of_a_kind/100000,"%","|Two_pair:",two_pair/100000,"%",
+                 "|Pair:", pair/100000,"%", "|High_Card",high_card/100000,"%")
 
 
-table_hands(10000)
+Texas_Holdem_Hands(10000000)
+
